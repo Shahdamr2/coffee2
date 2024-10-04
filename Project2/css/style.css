@@ -1,0 +1,730 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	height: 2000px;
+	perspective: 700px;
+	background-color: #311e0a;
+}
+/* sec1-head///////////////////////////////////////// */
+.container{
+	width: 80%;
+	margin: auto;
+}
+.head {
+    position: relative; 
+    z-index: 5; 
+}
+.cof-list{
+	flex: 3;
+    text-align: center;
+	margin-top: 10px;
+	font-size: 17px;
+	margin-right: 100px;
+	transform-style: preserve-3d;
+	
+}
+.coffee-content{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cof-icon {
+    display: flex;
+    align-items: center;
+}
+
+.cart-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.buy-no {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color:#674b2e;
+	color: #EAD2AC ;
+    position: absolute;
+    bottom: -1px;
+    right: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cof-icon span{
+	color:rgb(247, 214, 171);
+	margin-top: 30px;
+}
+.coffee-content img{
+	flex: 1;
+    max-width: 150px;
+	margin-top: 2px;
+	border-radius: 50%;
+	margin-bottom: 10px;
+    position: relative;
+}
+.cof-ul li{
+	text-align: center;
+	display: inline-block;
+	font-family: "Courgette", cursive;
+	z-index: 2;
+	
+}
+.cof-ul li a{
+	position: relative;
+	font-weight: bold;
+	padding: 10px 20px;
+	display: block;
+	text-decoration: none;
+	color: rgb(247, 214, 171);
+    height: 100%;
+    width: 95%;
+    transform: scale(1, 1);
+
+}
+.cof-ul li a:before,.cof-ul li a:after{
+content:"";
+position: absolute;
+border-style: solid; 
+left: 0;
+top:0; 
+transition: transform 0.2s;
+}
+.cof-ul li a:before{
+    border-width: 0 2px;
+    height: 100%; 
+    width: 95%;
+    transform: scale3d(1,0,1);
+	z-index: 2;
+}
+.cof-ul li a:hover:before{
+ transform: scale3d(1,1,1);
+ z-index: 2;
+}
+.cof-ul li a:after{
+border-width: 2px 0;
+height: 91%; 
+width: 98%;
+transform: scale3d(0,1,1);
+transform-origin: left;
+z-index: 2;
+}
+.cof-ul li a:hover:after{
+ transform: scale3d(1,1,1);
+ transition-delay: .2s;
+ z-index: 2;
+}
+.cof-icon i{
+	justify-self: flex-end;
+	display: inline-block;
+	font-size: 30px;
+	padding: 10px 10px;
+	color:rgb(247, 214, 171);
+}
+.cof-icon i span{
+	font-size: 12px;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+.coffee-img img{
+	display: block;
+	margin: 0;
+	position: relative;
+	border-radius: 15px;
+	z-index: 1;
+}
+.coffee-img{
+	position: relative;
+	z-index: 1;
+}
+.shop{
+	z-index: 2;
+}
+.shop button {
+    position: absolute; 
+    left: 50%;
+	top: 93%;
+    transform: translate(-50%, -50%); 
+	text-align: center;
+    padding: 10px 20px;
+    background-color: transparent; 
+    color: wheat; 
+    border: 2px solid wheat; 
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+	z-index: 2;
+}
+.shop h3 {
+	position: absolute;
+    top: 77%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 10px 20px;
+    background-color: transparent;
+    color: wheat;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	z-index: 2;
+}
+.shop button:hover {
+	background-color:wheat; 
+    color:rgb(86, 57, 18);
+}
+.shop button a {
+    background-color: transparent; 
+    color: inherit; 
+    text-decoration: none;
+}
+.study-tables {
+    background-color: #f7d6ab;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.5s, opacity 0.5s;
+    width: 450px;
+    padding: 15px 0px 15px 15px; 
+    margin-top: 5px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.cof-ul li:hover .study-tables {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 3;
+}
+.tables {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; 
+}
+.tables li {
+    display: block;
+    width: 100%; 
+    text-align: left;
+    padding: 5px; 
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #4A2C2A;
+}
+
+.tables li a {
+    text-decoration: none;
+    color: #4A2C2A;
+    padding: 5px 10px; 
+    display: block;
+    width: 100%;
+    transition: color 0.3s, background-color 0.3s;
+	width: 100px;
+}
+
+.tables li a:hover {
+    color: rgb(247, 214, 171);
+    background-color: #4A2C2A;
+    border-radius: 3px;
+}
+
+.tables-hr {
+    width: 100%;
+    margin: 0; 
+}
+.tables li:first-child {
+    border-bottom: 2px dotted #3e270e;
+	width: 70px;
+    display: inline-block; 
+    padding-bottom: 5px; 
+}
+
+/* sec3 special//////////////////////////////////////////////////////////////////////////// */
+
+.Special{
+	text-align: center;
+	padding:20px 0px;
+	font-size: 30px;
+}
+.Special h2{
+	padding: 10px;
+	color:rgb(247, 214, 171);
+}
+.Special .line{
+	width: 70px;
+	height: 2px;
+	background-color:rgb(247, 214, 171);
+	border-radius: 2px;
+	margin: auto;
+	display: block;
+	transition: 1s;
+}
+.Special h2:hover ~ .line {
+    width: 200px;
+    height: 2px;
+    background-color: rgb(247, 214, 171);
+    border-radius: 2px;
+    margin: auto;
+    display: block;
+    transition: 1s;
+}
+.cups{
+	transform-style: preserve-3d;
+	flex-direction: row;
+	display: flex;
+	
+
+}
+.cup-of-coffee {
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 5px;
+    margin-top: 20px;
+    background-color: #482f0e;
+    width: 300px;
+    position: relative;
+    padding: 10px; 
+	border-radius: 15px;
+	
+
+}
+
+.cup-of-coffee h4 {
+    font-size: 25px;
+    text-align: left; 
+    padding: 0px 20px;
+	text-transform: capitalize;
+	
+}
+
+.cup-of-coffee p {
+    font-size: 20px;
+    padding: 20px;
+    text-align: left; 
+}
+
+.cup-of-coffee .right {
+    position: relative; 
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 5px;
+    justify-content: flex-end;
+	position: absolute; 
+    bottom: 10px;
+    right: 10px; 
+    display: flex; 
+    gap: 5px; 
+	
+}
+
+.cup-of-coffee .right i {
+    text-align: center;
+    background-color: brown;
+    width: 30px;
+    height: 30px;
+	padding: 2px;
+    color: wheat;
+    font-size: 25px;
+    visibility: hidden;
+}
+.cup-img img{
+	border: 2px solid rgb(247, 214, 171) ;
+	
+}
+.cup-of-coffee:hover .right i {
+    visibility: visible; 
+    opacity: 1; 
+}
+.cup-content{
+	color:rgb(247, 214, 171);
+}
+/* sec4///////////////////////////////////////////////////////////////////////////// */
+.cof-discount{
+	display: grid;
+	grid-template-columns: repeat(4,2fr);
+	grid-gap: 20px;
+	grid-auto-rows: minmax(100px);
+	position: relative;
+
+}
+.div11{
+	background-color:#482f0e;
+	grid-column:1/3;
+	padding: 20px;
+	position: relative;
+	border-radius: 15px;
+
+
+}
+.div1{
+	width: 100%;
+    height: 100%;
+	position: relative;
+}
+.cof-discount i{
+	float: left;
+	font-size: 40px;
+	color: rgb(247, 214, 171);
+	margin-right: 5px;
+
+}
+.cof-discount h3{
+	font-size: 30px;
+	margin-left: 5px;
+	margin-top: 8px;
+	color: rgb(247, 214, 171);
+}
+.cof-discount p{
+	padding: 10px 0px 50px 0px;
+	font-size: 18px;
+	line-height: 1.7;
+	color: rgb(247, 214, 171);
+}
+.cof-discount .line2{
+	display: inline-block;
+    width: 50px;
+    height: 2px;
+    background-color: rgb(247, 214, 171);
+    margin-left: 10px;
+	
+}
+.cof-discount .lines{
+	text-align: right;
+	position: absolute;
+	bottom: 10px;
+    right: 10px;
+	padding-bottom: 10px;
+	
+}
+.div1 .cof-img{
+	background-image: url(../image/Lets\ Meet\ for\ Coffee.jfif);
+	background-size: cover;
+	transition: 0.5s;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+
+}
+
+.div1 .cof-img2{
+	background-image: url(../image/Xícara\ de\ capuccino\ de\ café\ quente\ com\ latte\ art\ na\ mesa\ de\ madeira\ no\ café\ _\ Foto\ Premium.jfif);
+	background-size: cover;
+	transition: 0.5s;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+	transition: 0.5s;
+	border-radius: 10px;
+
+}
+.div1 .cof-img2:hover{
+	transform: scale(1.1,1.1);
+	transition: 0.5s;
+
+}
+.div1 .cof-img:hover{
+	transform: scale(1.1,1.1);
+	transition: 0.5s;
+
+}
+.cup-discount h2{
+	margin-left: 5px;
+}
+.cup-discount h3,
+.cup-discount h2 {
+    color: rgb(247, 214, 171); 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); 
+}
+/* sec5//////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.contents{
+	display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 25px;
+}
+.cup-discount-content{
+	border-right: 2px solid rgb(247, 214, 171);
+	flex: 1;
+    text-align: center;
+	
+}
+.sprite-icon-1{
+	background-position: center 5px;
+	transition: all .5s;
+	}
+.cup-discount-content:hover .sprite-icon-1{
+		background-position: center -86px;
+	}
+
+
+.cup-discount-content h3,.cup-discount-content p{
+	font-size: 17px;
+	text-align: center;
+	padding: 0px 20px;
+	color: rgb(247, 214, 171);
+
+}
+.cup-discount-content1 h3,.cup-discount-content1 p{
+	font-size: 17px;
+	text-align: center;
+	padding: 0px 20px;
+	color: rgb(247, 214, 171);
+	
+}
+
+.sprite-icon{
+    background-image: url(../image/service-icon.png);
+    height: 55px;
+    background-repeat: no-repeat;
+	text-align: center;
+}
+.sprite-icon-1{
+background-position: center 5px;
+transition: all .5s;
+}
+.cup-discount-content:hover .sprite-icon-1{
+    background-position: center -86px;
+}
+.sprite-icon{
+    background-image: url(../image/service-icon.png);
+    height: 55px;
+    background-repeat: no-repeat;
+	text-align: center;
+}
+.sprite-icon-1{
+background-position: center 5px;
+transition: all .5s;
+}
+.cup-discount-content:hover .sprite-icon-1{
+    background-position: center -86px;
+}
+.sprite-icon{
+    background-image: url(../image/service-icon.png);
+    height: 55px;
+    background-repeat: no-repeat;
+	text-align: center;
+}
+.sprite-icon-1{
+background-position: center 5px;
+transition: all .5s;
+}
+.cup-discount-content:hover .sprite-icon-1{
+    background-position: center -86px;
+}
+.sprite-icon-2{
+	background-position: center -180px;
+	transition: all .5s;
+}
+.cup-discount-content:hover .sprite-icon-2{
+	background-position: center -273px;
+}
+.sprite-icon-3{
+background-position: center -366px;
+transition: all .5s;
+}
+.cup-discount-content:hover .sprite-icon-3{
+	background-position: center -455px;
+}
+.sprite-icon-4{
+	background-position: center -549px;
+	transition: all .5s;
+}
+.cup-discount-content:hover .sprite-icon-4{
+	background-position: center -639px;
+}
+.sprite-icon-5{
+	background-position: center -734px;
+    transition: all .5s;
+}
+.cup-discount-content1:hover .sprite-icon-5{
+	background-position: center -826px;
+}
+.cup-icons hr{
+	margin-top: 40px;
+	color:rgb(247, 214, 171);
+}
+
+/*sec6 /////////////////////////////////////////////////////////////////////////////////////////// */
+
+.coffee-product{
+	text-align: center;
+	padding:20px 0px;
+	font-size: 30px;
+	color:rgb(247, 214, 171);
+}
+.coffee-product h2{
+	padding: 10px;
+}
+.coffee-product .line{
+	width: 70px;
+	height: 2px;
+	background-color:rgb(247, 214, 171);
+	border-radius: 2px;
+	margin: auto;
+	display: block;
+	transition: 1s;
+}
+.coffee-product h2:hover ~ .line {
+    width: 200px;
+    height: 2px;
+    background-color: rgb(247, 214, 171);
+    border-radius: 2px;
+    margin: auto;
+    display: block;
+    transition: 1s;
+}
+/* sec6////////////////////////////////////////////////////////////////////// */
+.cup-list{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.cup-ul{
+	display: flex;
+	font-size: 20px;
+	text-align: center;
+	padding: 0px 20px;
+	color: #f7d6ab;
+	list-style-type: none;
+}
+.cup1 img{
+	position: relative;
+}
+
+.cup-ul li{
+	margin:  30px 20px;
+}
+.cups-product{
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin: 30px 0px;
+	transform-style: preserve-3d;
+}
+.cup1{
+	background-color:#482f0e;
+	height: 350px;
+	margin-bottom: 150px;
+	position: relative;
+	perspective: 1000px; 
+	
+}
+.cup1-ul{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cup1-ul li{
+	width: 40px;
+    height: 40px;
+    background-color: var(--maincolor);
+    display: inline-block;
+    text-align: center;
+}
+/* ///////////////////////////////////////////////////// */
+
+.cup1 .img-front{
+	background-size: cover;
+	margin-top: 20px;
+	box-shadow: 10px 10px 20px rgba(247, 214, 171, 0.5); 
+	transition: transform 0.2s ease;
+	border-radius: 50%;
+}
+
+.cup-img-back{
+	position: absolute;
+    top: 0;
+    left: 0;
+    transform:scalex(0);
+    opacity: 0.9;
+    transition: transform 0.2s;
+	margin-left: 49px;
+	width: 100%;
+	height: 100%;
+}
+.cup-img-back{
+	border-radius: 50%;
+}
+.cup-img-back .cup1-ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9); 
+	background-color: #3e270e ;
+	opacity: 0.8;
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+
+}
+.cup-img-back .cup1-ul li{
+    width: 40px;
+    height: 40px;
+	transition: transform 0.2s;
+    display: inline-block;
+    text-align: center;
+	margin: 45% 0px;
+}
+.cup-img-back .cup1-ul li i{
+    color: #fff;
+    line-height: 40px;
+}
+.img-front,.cup-img-back{
+	width: 300px;
+	height: 300px;
+	background-size: cover;
+	margin-top: 20px;	
+	position: absolute;
+    transition: transform 0.2s ease;
+}
+.cup-img-back i.active{
+    color: yellow;
+}
+.cup1:hover .cup-img-back{
+    transform: scalex(1);
+}
+
+
+/* //////////////////////////////////////////////////////////// */
+.product-content{
+	text-align: left;
+	height: 200px;	
+}
+.product-content i{
+	color: yellow;
+	padding: 40px 0px 10px 0px;
+	font-size: 17px;
+}
+.cup1 .product-content .star2{
+	color: rgb(255, 233, 210);
+	padding: 40px 0px 10px 0px;
+	font-size: 18px;
+}
+.cups-product span{
+	display: block;
+	padding: 5px 0px ;
+}
+.cups-product h3{
+	display: block;
+	font-size: 25px;
+}
